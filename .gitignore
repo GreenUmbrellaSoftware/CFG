@@ -20,8 +20,11 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# rbenv
+# Ignore rbenv.
 .ruby-version
 
-# IDEA IDEs
+# IDEA IDEs.
 .idea/
+
+# Ignore local gem bundle.
+vendor/bundle/
