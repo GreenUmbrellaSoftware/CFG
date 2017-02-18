@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dn: MyString
+  cn: MyString
+  active: false
+  pending: false
+
+two:
+  dn: MyString
+  cn: MyString
+  active: false
+  pending: false
