@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Admin</title>
+  <%= stylesheet_link_tag    "home", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "home", "data-turbolinks-track" => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="home">
+  <div class="container health-check">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2>Manager Your Instances</h2>
+
+        <div class="col-lg-12 text-center">
+          <h2 class="heading">Configurator</h2>
+          <div class="row">
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status healthy" data-url="">
+                <span class="details">Looks Good Boss. maybe put some more interesting information in here</span>
+              </p>
+            </div>
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status error" data-url="">
+                <span class="details"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 text-center">
+          <h2 class="heading">Other Instances</h2>
+          <div class="row">
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status error" data-url="">
+                <span class="details"></span>
+              </p>
+            </div>
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status healthy" data-url="">
+                <span class="details">Looking good. No issues to report.</span>
+              </p>
+            </div>
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status error" data-url="">
+                <span class="details"></span>
+              </p>
+            </div>
+            <div class="col-xs-6 col-lg-4 wrapper">
+              <p class="health-status" data-url="">
+                <span class="details">Unable to connect <a href="#">Attempt to reconnect</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-4">
+        <h2>Manage Pending Users</h2>
+        <ul class="list-group">
+          <% if @pending.present? %>
+            <% @pending.each do |pending| %>
+              <li class="list-group-item">
+                <span class="pull-right">
+                  <a href="<%= edit_user_path(pending)%>" title="Approve User" class="btn btn-primary add-user">
+                    <span class="glyphicon glyphicon-ok">
+                    </span>
+                  </a>
+                  <a href="<%= user_path(pending)%>" title="Reject User" class="btn reject-user">
+                    <span class="glyphicon glyphicon-remove">
+                    </span>
+                  </a>
+                </span>
+                <strong><%= pending.cn%></strong> - <small><%= pending.dn%></small>
+                <div><small class="text-muted"><em><%=pending.created_at%></em></small></div>
+              </li>
+            <% end %>
+          <% else %>
+            <li class="list-group-item empty_requests">There are no pending users at this time</li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+

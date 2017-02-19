@@ -11,6 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap.min
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});

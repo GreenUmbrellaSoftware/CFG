@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Access Denied</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+    <%= csrf_meta_tags %>
+</head>
+
+<body class='homepage unauthorized'>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <h3>CFG <small>Manage Your Cloud</small></h3>
+    </div>
+</div>
+<div class="container home">
+    <div class="section-title">
+        <span>Access Denied</span>
+        <p><%= @content.html_safe %></p>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Green Umbrella Software</p>
+    </footer>
+</div>
+</body>
+
+</html>
