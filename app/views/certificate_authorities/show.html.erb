@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @certificate_authority.title %>
+</p>
+
+<p>
+  <strong>Intermediate:</strong>
+  <%= @certificate_authority.intermediate %>
+</p>
+
+<p>
+  <strong>Root:</strong>
+  <%= @certificate_authority.root %>
+</p>
+
+<%= link_to 'Back', certificate_authorities_path %>
