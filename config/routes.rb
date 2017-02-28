@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :user_access_requests, :only => [:index]
   resources :users, :only => [:index, :edit, :update]
-  resources :certificate_authorities, :only => [:index, :new, :show]
+  resources :certificate_authorities, :only => [:create, :index, :new, :show]
 end

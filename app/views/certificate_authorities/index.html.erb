@@ -1,29 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Certificate Authorities</h1>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Certificate Authorities</h1>
+        <p class="lead">In cryptography, a certificate authority or certification authority (CA) is an entity that issues digital certificates.  The Configurator allows its users to upload one or more CAs to be used for client authentication.</p>
+        <p><%= link_to 'Add a Certificate Authority',
+                   new_certificate_authority_path,
+                   class: 'btn btn-lg btn-success' %>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Intermediate</th>
-      <th>Root</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <% unless @certificate_authorities.empty? %>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Title</th>
+          <th>Intermediate</th>
+          <th>Root</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
 
-  <tbody>
-    <% @certificate_authorities.each do |certificate_authority| %>
-      <tr>
-        <td><%= certificate_authority.title %></td>
-        <td><%= shorten_certificate_display certificate_authority.intermediate %></td>
-        <td><%= shorten_certificate_display certificate_authority.root %></td>
-        <td><%= link_to 'Show', certificate_authority %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+        <% @certificate_authorities.each do |certificate_authority| %>
+            <tr>
+              <td><%= certificate_authority.title %></td>
+              <td><%= display_common_name certificate_authority.intermediate %></td>
+              <td><%= display_common_name certificate_authority.root %></td>
+              <td><%= link_to 'Show', certificate_authority %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <% end %>
 
-<br>
-
-<%= link_to 'New Certificate Authority', new_certificate_authority_path %>
+    </div>
