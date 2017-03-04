@@ -5,6 +5,7 @@ class CertificateAuthoritiesController < ApplicationController
   # GET /certificate_authorities.json
   def index
     @certificate_authorities = CertificateAuthority.all
+    @certificate_authorities.each { |ca| ca.collect_certificates }
   end
 
   # GET /certificate_authorities/1
@@ -35,6 +36,7 @@ class CertificateAuthoritiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_certificate_authority
       @certificate_authority = CertificateAuthority.find(params[:id])
+      @certificate_authority.collect_certificates
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

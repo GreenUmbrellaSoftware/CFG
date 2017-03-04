@@ -1,18 +1,65 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @certificate_authority.title %>
-</p>
+  <h1><%= @certificate_authority.title %></h1>
 
-<p>
-  <strong>Intermediate:</strong>
-  <%= @certificate_authority.intermediate %>
-</p>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Intermediate</h2>
+    </div>
+    <div class="panel-body">
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Common Name</h4>
+          <p class="list-group-item-text">
+            <%= display_common_name(@certificate_authority.certs[:intermediate]) %>
+          </p>
+        </div>
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Not Before</h4>
+          <p class="list-group-item-text">
+            <%= @certificate_authority.certs[:intermediate].not_before %>
+          </p>
+        </div>
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Not After</h4>
+          <p class="list-group-item-text">
+            <%= @certificate_authority.certs[:intermediate].not_after %>
+          </p>
+        </div>
+        <pre class="list-group-item"><%= @certificate_authority.certs[:intermediate] %></pre>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Root:</strong>
-  <%= @certificate_authority.root %>
-</p>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="panel-title">Root</h2>
+    </div>
+    <div class="panel-body">
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Common Name</h4>
+          <p class="list-group-item-text">
+            <%= display_common_name(@certificate_authority.certs[:root]) %>
+          </p>
+        </div>
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Not Before</h4>
+          <p class="list-group-item-text">
+            <%= @certificate_authority.certs[:root].not_before %>
+          </p>
+        </div>
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading">Not After</h4>
+          <p class="list-group-item-text">
+            <%= @certificate_authority.certs[:root].not_after %>
+          </p>
+        </div>
+        <pre class="list-group-item"><%= @certificate_authority.certs[:root] %></pre>
+      </div>
+    </div>
+  </div>
 
-<%= link_to 'Back', certificate_authorities_path %>
+  <%= link_to 'Back', certificate_authorities_path, class: 'btn btn-default' %>
+</div>

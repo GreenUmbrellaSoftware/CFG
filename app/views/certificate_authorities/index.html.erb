@@ -24,8 +24,8 @@
         <% @certificate_authorities.each do |certificate_authority| %>
             <tr>
               <td><%= certificate_authority.title %></td>
-              <td><%= display_common_name certificate_authority.intermediate %></td>
-              <td><%= display_common_name certificate_authority.root %></td>
+              <td><%= display_common_name certificate_authority.certs[:intermediate] %></td>
+              <td><%= display_common_name certificate_authority.certs[:root] %></td>
               <td><%= link_to 'Show', certificate_authority %></td>
             </tr>
         <% end %>
